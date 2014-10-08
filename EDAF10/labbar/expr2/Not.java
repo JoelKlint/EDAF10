@@ -1,4 +1,4 @@
-package expr;
+package expr2;
 
 import java.util.Map;
 import java.util.Set;
@@ -12,7 +12,7 @@ public class Not extends Expr {
 	}
 	
 	public String toString()	{
-		return "(Â" + expr.toString() + ")";
+		return "(ï¿½" + expr.toString() + ")";
 	}
 
 	@Override

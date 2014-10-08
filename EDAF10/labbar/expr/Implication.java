@@ -1,21 +1,20 @@
 package expr;
 
+import java.util.Map;
 
-public class Implication extends TwoVarExpr {
+public class Implication extends TwoVariableExpr {
 
-	public Implication(Expr expr1, Expr expr2) {
-		super(expr1, expr2);
+	public Implication(Expr e1, Expr e2) {
+		super(e1, e2);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	protected String getSymbol() {
-		return "-->";
+	public boolean value(Map<Variable, Boolean> map) {
+		return !e1.value(map) || e2.value(map);
 	}
 
-	@Override
-	protected boolean twoOpValue(Boolean one, Boolean two) {
-		return !one || two;
+	public String toString() {
+		return super.toString("->");
 	}
 
 }

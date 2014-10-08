@@ -3,17 +3,12 @@ package expr;
 import java.util.Map;
 import java.util.Set;
 
-public class Variable extends Expr {
+public class Variable extends Expr{
 	
 	private String name;
-
-	public Variable(String name){
+	
+	public Variable(String name)	{
 		this.name = name;
-	}
-
-	@Override
-	protected void collectVariables(Set<Variable> set) {
-		set.add(this);
 	}
 
 	@Override
@@ -22,34 +17,37 @@ public class Variable extends Expr {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Variable other = (Variable) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+	protected void collectVariables(Set<Variable> set) {
+		set.add(this);
+		// TODO Auto-generated method stub
+		
 	}
 	
+	private String getName(){
+		return name;
+	}
+	
+	public boolean equals(Object other)	{
+		if(other instanceof Variable)	{
+			String otherName = ((Variable)other).getName();
+			if(otherName.equals(name))	{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int hashCode()	{
+		int hashCode = name.hashCode();
+		return hashCode;
+	}
+
 	public String toString()	{
 		return name;
 	}
+	
+	
+	
 	
 
 }

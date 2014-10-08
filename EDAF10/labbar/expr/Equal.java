@@ -13,7 +13,8 @@ public class Equal extends TwoVariableExpr {
 		return e1.value(map) == e2.value(map);
 	}
 
-	public String toString() {
-		return super.toString("<->");
+	@Override
+	protected String getOperand() {
+		return "<->";
 	}
 }

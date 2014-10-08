@@ -11,8 +11,9 @@ public class Disjunction extends TwoVariableExpr {
 	public boolean value(Map<Variable, Boolean> map) {
 		return e1.value(map) || e2.value(map);
 	}
-	
-	public String toString() {
-		return super.toString("v");
+
+	@Override
+	protected String getOperand() {
+		return "v";
 	}
 }

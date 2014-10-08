@@ -6,7 +6,13 @@ import java.util.Set;
 import java.util.Iterator;
 
 public class TermList extends ArrayList<Term> {
-    public TermList(Term... terms) {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public TermList(Term... terms) {
         super(Arrays.asList(terms));
     }
 

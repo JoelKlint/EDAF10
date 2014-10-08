@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/expr/And.java=UTF-8
-encoding//src/predicate/ForAll.java=UTF-8
-encoding//src/predicate/Implies.java=UTF-8
+encoding//labbar/predicate/ForAll.java=UTF-8
+encoding//labbar/predicate/Implies.java=UTF-8
+

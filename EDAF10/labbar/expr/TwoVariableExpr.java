@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class TwoVariableExpr extends Expr {
-	
 
 	protected Expr e1, e2;
 
@@ -22,9 +21,9 @@ public abstract class TwoVariableExpr extends Expr {
 		e1.collectVariables(set);
 		e2.collectVariables(set);
 	}
-	
+
 	protected abstract String getOperand();
-	
+
 	public String toString() {
 		String res = "";
 		res = "( " + e1 + " " + getOperand() + " " + e2 + " )";

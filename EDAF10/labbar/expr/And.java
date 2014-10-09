@@ -13,19 +13,9 @@ public class And extends TwoVariableExpr {
 		Boolean v2 = e2.value(map);
 		
 		return v1 && v2;
-		
-//		if (v1 == v2) {
-//			if (v1 == true) {
-//				return true;
-//			} else {
-//				return false;
-//			}
-//		} else {
-//			return false;
-//		}
 	}
-
-	public String toString() {
-		return super.toString("^");
+	
+	public String getOperand()	{
+		return "^";
 	}
 }

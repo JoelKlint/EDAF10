@@ -11,10 +11,11 @@ public class Point3D implements Point {
 
 	private double x, y, z;
 
-	public Point3D(double x, double y) {
+	public Point3D(double x, double y, double z) {
 		super();
 		this.x = x;
 		this.y = y;
+		this.z = z;
 	}
 
 	/* (non-Javadoc)

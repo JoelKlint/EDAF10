@@ -2,9 +2,9 @@ package expr;
 
 import java.util.Map;
 
-public class Disjunction extends TwoVariableExpr {
+public class Or extends TwoVariableExpr {
 
-	public Disjunction(Expr e1, Expr e2) {
+	public Or(Expr e1, Expr e2) {
 		super(e1, e2);
 	}
 

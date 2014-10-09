@@ -2,9 +2,9 @@ package expr;
 
 import java.util.Map;
 
-public class Conjunction extends TwoVariableExpr {
+public class And extends TwoVariableExpr {
 
-	public Conjunction(Expr e1, Expr e2) {
+	public And(Expr e1, Expr e2) {
 		super(e1, e2);
 	}
 

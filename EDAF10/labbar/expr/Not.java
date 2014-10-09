@@ -3,11 +3,11 @@ package expr;
 import java.util.Map;
 import java.util.Set;
 
-public class Negation extends Expr{
+public class Not extends Expr{
 	
 	private Expr e1;
 	
-	public Negation(Expr e1)	{
+	public Not(Expr e1)	{
 		this.e1 = e1;
 	}
 

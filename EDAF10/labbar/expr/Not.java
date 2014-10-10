@@ -24,7 +24,7 @@ public class Not extends Expr{
 	
 	public String toString() {
 		String res = "";
-		res = "Â" + e1;
+		res = "¬" + e1;
 		return res;
 	}
 	

@@ -18,7 +18,6 @@ public class Parser {
 		scanner = new Scanner(reader);
 		token = scanner.nextToken();
 		Expr expr = expr();
-		System.out.println(open + "   !   " + close);
 		if (token == Scanner.EOF && open == close) {
 			return expr;
 		} 

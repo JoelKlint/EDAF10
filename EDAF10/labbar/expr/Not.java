@@ -22,13 +22,9 @@ public class Not extends Expr{
 		
 	}
 	
-	public String getOperand()	{
-		return "¬";
-	}
-	
 	public String toString() {
 		String res = "";
-		res = "¬" + e1;
+		res = "�" + e1;
 		return res;
 	}
 	

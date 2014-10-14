@@ -17,10 +17,6 @@ public class Point2D implements Point{
 		this.y = y;
 	}
 
-	/* (non-Javadoc)
-	 * @see geometry.Point#distanceTo(geometry.Point2D)
-	 */
-	@Override
 	public double distanceTo(Point other) {
 		double tempx = Math.abs(this.x - ((Point2D)other).x);
 		double tempy = Math.abs(this.y - ((Point2D)other).y);

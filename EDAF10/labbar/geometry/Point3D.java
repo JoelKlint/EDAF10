@@ -18,10 +18,6 @@ public class Point3D implements Point {
 		this.z = z;
 	}
 
-	/* (non-Javadoc)
-	 * @see geometry.Point#distanceTo(geometry.Point2D)
-	 */
-	@Override
 	public double distanceTo(Point other) {
 		double tempx = Math.abs(this.x - ((Point3D)other).x);
 		double tempy = Math.abs(this.y - ((Point3D)other).y);

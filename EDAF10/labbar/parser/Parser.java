@@ -12,19 +12,14 @@ import expr.Variable;
 public class Parser {
 	private Scanner scanner;
 	private int token;
-	private int open, close;
 
 	public Expr build(Reader reader) {
 		scanner = new Scanner(reader);
 		token = scanner.nextToken();
 		Expr expr = expr();
-		if (token == Scanner.EOF && open == close) {
+		if (token == Scanner.EOF) {
 			return expr;
 		} 
-		else if(token == Scanner.EOF && open != close)	{
-			throw new ParserException("Expecting \")\", found: "
-					+ scanner.token());
-		}
 			else {
 			throw new ParserException("Trailing garbage after "
 					+ scanner.token());
@@ -38,7 +33,7 @@ public class Parser {
 	private Expr expr() {
 		Expr result, primary;
 		result = primary();
-		if (token == -3) {
+		if (token == Scanner.IMPLIES) {
 			primary = result;
 			token = scanner.nextToken();
 			result = new Implies(primary, primary());
@@ -50,7 +45,7 @@ public class Parser {
 	private Expr primary() {
 		Expr result, term;
 		result = term();
-		while (token == 124) {
+		while (token == '|') {
 			term = result;
 			token = scanner.nextToken();
 			result = new Or(term, term());
@@ -62,7 +57,7 @@ public class Parser {
 	private Expr term() {
 		Expr result, factor;
 		result = factor();
-		while (token == 38) {
+		while (token == '&') {
 			factor = result;
 			token = scanner.nextToken();
 			result = new And(factor, factor());
@@ -74,25 +69,24 @@ public class Parser {
 	private Expr factor() {
 		Expr expr = null;
 		switch (token) {
-		case -2:
+		case Scanner.VARIABLE:
 			expr = new Variable(scanner.token());
 			break;
 
-		// "!" en factor
-		case 33:
+		case '!':
 			token = scanner.nextToken();
 			expr = new Not(new Variable(scanner.token()));
 			break;
 
-		// "(" början på expr
-		case 40:
-			open++;
+		case '(':
 			token = scanner.nextToken();
 			expr = expr();
-//			")"	slutet av expr
-			if(token == 41)	{
-				close++;
+			if(token == ')')	{
 				token = scanner.nextToken();
+			}
+			else	{
+				throw new ParserException("Expecting \")\", found: "
+						+ scanner.token());
 			}
 			break;
 
